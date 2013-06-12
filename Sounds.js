@@ -84,7 +84,7 @@
 	};
 
 	// Play a sound
-	Sounds.prototype.jouer = function(name,iterations) {
+	Sounds.prototype.play = function(name,iterations) {
 		// if the sound exists
 		if(this.sounds[name]&&(this.sounds[name].hasAttribute('loop')||!this.muted)) {
 			// getting iteration count
