@@ -69,16 +69,15 @@
 		sound.addEventListener('canplaythrough', this.soundLoaded.bind(this));
 	},
 
-	// dépile un son du tableau des sounds à charger
+	// remove soundsToLoad when loaded
 	Sounds.prototype.soundLoaded = function(event) {
-		// on récupère l'index du son chargé
+		// getting the index of the loaded sound
 		var index=this.soundsToLoad.indexOf(event.target);
 		if(index>=0) {
 			var sound=this.soundsToLoad.splice(index,1)[0];
-			this.sounds[son.getAttribute('data-name')]=sound;
+			this.sounds[sound.getAttribute('data-name')]=sound;
 		}
-		// si il n'y a plus de sounds à charger
-		// on appelle la fonction de retour
+		// if no more sounds to load, execute callback
 		if(this.loadedSounds&&!this.soundsToLoad.length)
 			this.loadedSounds();
 	};
