@@ -1,22 +1,5 @@
-// UMD stuff : Browser + RequireJS + Node
-(function (root, moduleName, deps, factory) {
-	if (typeof exports === 'object') {
-	// Node. Does not work with strict CommonJS, but
-	// only CommonJS-like enviroments that support module.exports,
-	// like Node.
-	module.exports = factory.apply(root,deps.map(function(dep) {
-		return require(dep);
-	}));
-	} else if (typeof define === 'function' && define.amd) {
-		// AMD. Register as an anonymous module.
-		define(deps, factory);
-	} else {
-		// Browser globals
-		root[moduleName] = factory.apply(root,deps.map(function(dep) {
-			return root[dep];
-		}));
-	}
-})(this, 'Sounds', [], function (Promise) {
+// AMD + global
+(function(root,define){ define([], function() {
 
 	// HTML5 Sounds manager
 	function Sounds(folder,loadCallback) {
@@ -134,4 +117,11 @@
 
 	return Sounds;
 
+})})(this,typeof define === 'function' && define.amd ? define : function (name, deps, factory) {
+	if(typeof name === 'Object') {
+		deps=name; factory=deps;
+	}
+	this['Sounds']=factory.apply(this, deps.map(function(){
+		return this[deps.substring(deps.lastIndexOf('/')+1)];
+	}));
 });
