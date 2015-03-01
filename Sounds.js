@@ -112,5 +112,5 @@ Sounds.prototype.mute = function(muted) {
 	this.muted=muted;
 };
 
-module.export = Sounds;
+module.exports = Sounds;
 
