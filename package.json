@@ -1,0 +1,23 @@
+{
+  "name": "sounds",
+  "version": "1.0.1",
+  "description": "Simple sound library.",
+  "main": "Sounds.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nfroidure/Sounds.git"
+  },
+  "keywords": [
+    "sound",
+    "html5"
+  ],
+  "author": "Nicolas Froidure",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nfroidure/Sounds/issues"
+  },
+  "homepage": "https://github.com/nfroidure/Sounds"
+}
